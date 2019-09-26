@@ -1,8 +1,5 @@
-﻿<# 
- Скрип ввода компьютера в домен.
- Для выполнением скрипта дай разрешение Set-ExecutionPolicy Unrestricted, в конце можно выполнить эту же команду,
- с параметром Restricted, чтобы в дальнейшем запретить выполнение PowerShell скриптов
-#>
+﻿<# Скрип ввода компьютера в домен.
+   @autor Sukhov Viachelav 2019 #>
 
 # Запрос прав админа
 if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
@@ -50,6 +47,6 @@ if ($next -eq 'y') {
     powershell.exe -NoExit | Out-Null
 }
 else {
-    # заершение скрипта
+    # завершение скрипта
     exit
 }
