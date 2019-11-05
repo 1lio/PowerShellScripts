@@ -1,25 +1,16 @@
-﻿# Информация о мониторах которую смог выдрать из параметров монитора
-# Задумывался как часть PCREPORT.ps1
-function Get-MonitorDetails
-{
-  param
-  (
-    [Object]
-    [Parameter(Mandatory=$true, ValueFromPipeline=$true, HelpMessage="Data to process")]
-    $InputObject
-  )
-  process
-  {
-    $Manufacturer = ($InputObject.ManufacturerName -notmatch 0 | ForEach-Object{[char]$_}) -join ""
-    $MName = ($InputObject.UserFriendlyName -notmatch 0 | ForEach-Object{[char]$_}) -join ""
-    $MSerial = ($InputObject.SerialNumberID -notmatch 0 | ForEach-Object{[char]$_}) -join ""
+﻿$Monitors = Get-WmiObject WmiMonitorID -Namespace root\wmi
+Write-Host $Monitors.Length  -ForegroundColor Cyan
 
-    return [pscustomobject]@{
-      Manufacturer = $Manufacturer
-      MName        = $MName
-      MSerial      = $MSerial
-    }
-  }
-}
+ForEach ($Monitor in $Monitors) {
 
-Get-WmiObject WmiMonitorID -Namespace root\wmi | Get-MonitorDetails
+    $Manufacturer = ($Monitor.ManufacturerName -notmatch 0 | ForEach{[char]$_}) -join ""
+    $MSerial = ($Monitor.SerialNumberID -notmatch 0 | ForEach{[char]$_}) -join ""
+
+   Switch ($Manufacturer) {
+    "GSM" {$Manufacturer = "LG"}
+    "ACR" {$Manufacturer = "Acer"}
+    "SAM" {$Manufacturer = "Samsung"}
+   }
+   
+   Write-Host "$Manufacturer Ser: $MSerial" -ForegroundColor Yellow
+}   
