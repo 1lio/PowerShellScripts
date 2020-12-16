@@ -27,10 +27,18 @@
 * [Импорт пользователей из CSV](powershell/ImportUserListFromCSV.ps1)
 * [Информация об ОЗУ](powershell/Memory.ps1)
 * [Информация об мониторах](powershell/Monitors.ps1)
+* [Инвентаризация](powershell/PCReportV01.ps1) (Простая)
+* [Запустить скрипт как службу](powershell/RunScriptOnService.ps1)
+* [Экспорт компов домена в CSV](powershell/ExportAllPc.ps1)
+* [Пример внедрения кода на JS](powershell/JS-Test.ps1)
+* [Пример GUI](powershell/GUI.ps1)
+
 ---
-* [Инвентаризация](powershell/PCReport.ps1) - данный скрипт собирает информацию о компах в домене
-  и для каждого создает Excel-документ содержащий паспорт компьютера (Может быть косяк с Windows XP).
-  
+
+* [Инвентаризация](powershell/PCReport.ps1) - данный скрипт собирает информацию о компах в домене и для каждого создает
+  Excel-документ содержащий паспорт компьютера (Может быть косяк с Windows XP). Можно совместить с 
+  [планировкой инвентаризации](powershell/ReportSchedule.ps1).
+
 ![alt text](art/pc-report.png)
 
 ### License
