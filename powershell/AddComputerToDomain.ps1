@@ -1,8 +1,8 @@
-﻿<# Скрип ввода компьютера в домен.
-   @autor Sukhov Viachelav 2019 #>
+﻿# Скрип ввода компьютера в домен
 
 # Запрос прав админа
-if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator"))
+{
     Write-Host "Скрипт запущен без прав администратора!" -ForegroundColor Red
     Write-Host "Запрос прав..." -ForegroundColor Red
 
@@ -15,9 +15,7 @@ try {
     # установка разрешение выполнения PowerShell скриптов
     Set-ExecutionPolicy Unrestricted
     Write-Host "Запрос разрешения на выполение скрипта. Успех!" -ForegroundColor Green
-}
-catch {
-
+} catch {
     Write-Host "Запрос разрешения на выполение скрипта. Неудача!" -ForegroundColor Red
     Write-Host "Выполните команду: Set-ExecutionPolicy Unrestricted" -ForegroundColor Cyan
     powershell.exe -NoExit | Out-Null
@@ -38,15 +36,13 @@ if ($next -eq 'y') {
     if ($env:COMPUTERNAME -eq $nameComuter) {
         # Ввод в домен без переименования компьютера
         Add-Computer  -ComputerName $env:COMPUTERNAME -DomainName $domainName.ToUpper() -Credential $creed -Restart
-    }
-    else {
+    } else {
         # Ввод в домен с новым именем
         Add-Computer  -ComputerName $env:COMPUTERNAME -DomainName $domainName.ToUpper()  -NewName $nameComuter -Credential $creed -Restart
     }
 
     powershell.exe -NoExit | Out-Null
-}
-else {
+} else {
     # завершение скрипта
     exit
 }
