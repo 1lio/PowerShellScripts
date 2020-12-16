@@ -12,6 +12,7 @@
 * [Очистка директории (с уникальными поддиректориями которые чистить не нужно)](cmd/ClearFolder.cmd)
 * [Смена адреса сервера администрирования в KasperskyAgent](cmd/KasperskyAgentAddress.cmd)
 * [Найти ip-адрес по MAC](cmd/FindIPonMAC.cmd)
+* [Подключение шары](cmd/AddShare.cmd)
 
 ## POWERSHELL:
 
@@ -21,7 +22,7 @@
 * [Вывод из домена и обратно](powershell/ReConnectComuterToDomain.ps1) (если комп потерял домен)
 * [Поиск устаревших и неиспользуемых компов в домене](powershell/FindOldComputers.ps1)
 * [Поиск неактивных пользователей в домене](powershell/FindOldUsers.ps1)
-* [Переименовать файл в указанной директории](powershell/FilesRenamer.ps1)
+* [Переименовать файлы в указанной директории](powershell/FilesRenamer.ps1) (Переименование по маске)
 * [Добавление программы в "Мой Компьютер"](powershell/AddProgrammInMyPC.ps1)
 * [Импорт пользователей из CSV](powershell/ImportUserListFromCSV.ps1)
 * [Информация об ОЗУ](powershell/Memory.ps1)
