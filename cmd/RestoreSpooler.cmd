@@ -1,3 +1,5 @@
+REM Перезапуск службы печати / очистка очереди
+
 echo off
 
 net stop spooler
